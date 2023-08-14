@@ -4,5 +4,5 @@
 
 <p align="center"> 
   People that Garou Owned<br>
-  <img src="https://raw.githubusercontent.com/ZFPuhi/REPOSITORIES/master/readme-content/visitors-counter.svg" />
+  <img src="https://github.com/ZFPuhi/REPOSITORIES/blob/master/readme-content/visitors-counter.svg" />
 </p>
