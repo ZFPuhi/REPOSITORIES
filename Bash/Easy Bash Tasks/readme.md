@@ -1,1 +1,17 @@
 # Just a place to put some easy bash tasks
+
+[Write a Bash script that reads a list of filenames from a text file, checks if each file exists, and displays a message indicating whether each file is present or not ](bash-1.sh)
+[Write a Bash script that takes a number as a command-line argument and prints the multiplication table for that number up to 10](bash-2.sh)
+[Write a Bash script that reads a list of email addresses from a file and validates each email using regular expressions, then categorizes them as valid or invalid.](bash-3.sh)
+[Write a Bash script that defines a function to calculate the factorial of a given number and displays the result. Use an environment variable to store the input number.](bash-4.sh)
+[Write a Bash script that simulates a basic calculator. Prompt the user to enter two numbers and an operation (+, -, *, /). Perform the operation and display the result.](bash-5.sh)
+[Write a Bash script that analyzes a log file, extracts unique IP addresses, counts their occurrences, and displays the top 5 IP addresses along with their visit counts.](bash-6.sh)
+[Write a Bash script that automates the deployment process for a web application. The script should pull the latest code from a Git repository, build the application, and restart the web server.](bash-7.sh)
+[Write a Bash script that monitors system resources (CPU, memory, disk usage) at regular intervals and sends an email alert if any resource exceeds a specified threshold.](bash-8.sh)
+[Write a Bash script that rotates and backs up log files. The script should archive old log files, compress them, and move them to a backup directory.](bash-9.sh)
+[Write a Bash script that generates a configuration file for a load balancer. The script should read a list of backend server IP addresses and ports, and create a configuration file in a specific format.](bash-10.sh)
+[Write a Bash script that automates the provisioning of a new virtual server instance. The script should launch a new cloud instance, configure it with necessary packages and settings, and deploy a sample application](bash-11.sh)
+[Write a Bash script that aggregates and analyzes logs from multiple servers. The script should collect log files, extract relevant data, and generate a summary report.](bash-12.sh)
+[Write a Bash script that dynamically scales the number of instances in a server cluster based on workload. The script should monitor resource usage and adjust the cluster size as needed.](bash-13.sh)
+[Write a Bash script that automates the backup of a MySQL database. The script should dump the database, compress the backup, and store it in a specified backup directory.](bash-14.sh)
+[Write a Bash script that synchronizes files between two directories. The script should compare the contents of two directories and copy new or modified files from one directory to another.](bash-15.sh)

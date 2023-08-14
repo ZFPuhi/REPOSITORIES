@@ -1,0 +1,15 @@
+# Some more interesting Bash scripts.
+
+[Server Provisioning Script | Automate the provisioning of new servers with necessary configurations, packages, and settings.](bash-1.sh)
+[Deployment Script | Automate the deployment of applications to various environments, handling build, testing, and deployment steps.](bash-2.sh)
+[Backup and Restore Script | Create backups of databases, files, or entire systems, and provide a script for restoring them when needed.](bash-3.sh)
+[Log Analysis Script | Analyze log files for errors, warnings, or specific patterns to troubleshoot issues and monitor system health.](bash-4.sh)
+[Monitoring and Alerting Script | Monitor system resources, performance metrics, and application health, and send alerts when predefined thresholds are exceeded.](bash-5.sh)
+[Configuration Management Script | Automate the configuration of servers and services to ensure consistent setups across environments.](bash-6.sh)
+[Automated Testing Script | Automate the execution of tests, whether for unit testing, integration testing, or other types of testing.](bash-7.sh)
+[Continuous Integration Script | Set up a script that integrates code changes into a shared repository, triggers builds, and runs tests automatically.](bash-8.sh)
+[Security Auditing Script | Perform security audits, vulnerability scans, and compliance checks to ensure system security and compliance.](bash-9.sh)
+[Scaling and Load Balancing Script | Automate the scaling of resources based on demand or load, and configure load balancers to distribute traffic.](bash-10.sh)
+[Automate System Updates | Manage User Accounts | Application Deployment](bash-11.sh)
+[Disk Space Monitoring | Backup Configuration Files](bash-12.sh)
+[Firewall Rules Management | Certificate Renewal](bash-13.sh)
