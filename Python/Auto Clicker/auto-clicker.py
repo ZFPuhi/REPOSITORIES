@@ -17,12 +17,16 @@ class AutoClickerApp:
         self.root.title("Auto Clicker")
         self.root.geometry("761x335")  # Set a specific window size for my desired background image.
 
+        # Set application icon
+        self.root.iconbitmap(os.path.join(BASE_DIR, "images/app_icon.ico"))
+
         # Added logging.
         self.init_logging()
 
         # Initialize variables.
         self.click_speed = tk.DoubleVar(value=5)
         self.auto_clicking_active = False
+        self.auto_click_timer = None
 
         # Try to load and display background image.
         self.background_image = self.load_background_image()
@@ -30,20 +34,27 @@ class AutoClickerApp:
         self.background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
         # Creating the UI elements.
-        self.label = tk.Label(root, text="Auto Clicker")
+        self.label = tk.Label(root, text="Auto Clicker", font=("Verdana", 16))
         self.label.pack()
 
-        self.speed_label = tk.Label(root, text="Clicks per second:")
+        self.welcome_label = tk.Label(root, text="Welcome to Auto Clicker!", font=("Verdana", 14))
+        self.welcome_label.pack()
+
+        self.speed_label = tk.Label(root, text="Clicks per second:", font=("Verdana", 12))
         self.speed_label.pack()
 
         self.speed_slider = tk.Scale(root, from_=5, to=999, orient="horizontal", variable=self.click_speed)
         self.speed_slider.pack()
 
+        # Load button images
+        self.start_button_image = tk.PhotoImage(file=os.path.join(BASE_DIR, "images/start_button.png"))
+        self.stop_button_image = tk.PhotoImage(file=os.path.join(BASE_DIR, "images/stop_button.png"))
+
         # The buttons to start and stop auto-clicking process.
-        self.start_button = tk.Button(root, text="Start (F1)", command=self.toggle_auto_click)
+        self.start_button = tk.Button(root, image=self.start_button_image, command=self.toggle_auto_click)
         self.start_button.pack()
 
-        self.stop_button = tk.Button(root, text="Stop (F2)", command=self.stop_auto_click)
+        self.stop_button = tk.Button(root, image=self.stop_button_image, command=self.stop_auto_click)
         self.stop_button.pack()
 
         # Mouse controller and keyboard listener
@@ -90,12 +101,9 @@ class AutoClickerApp:
             self.mouse.click(Button.left)
             time.sleep(1 / self.click_speed.get())
 
-    def auto_click_thread(self):
-        # Start the auto-clicking thread
-        auto_click_thread = threading.Thread(target=self.auto_click)
-        auto_click_thread.start()
-        auto_click_thread.join()
         self.auto_clicking_active = False
+        if self.keyboard_listener:
+            self.keyboard_listener.stop()
 
     def toggle_auto_click(self):
         # Toggle auto-clicking on/off
@@ -103,13 +111,16 @@ class AutoClickerApp:
             self.auto_clicking_active = True
             self.keyboard_listener = Listener(on_press=self.on_press, on_release=self.on_release)
             self.keyboard_listener.start()
-            self.auto_click_thread()
+            self.auto_click_thread = threading.Thread(target=self.auto_click)
+            self.auto_click_thread.start()
         else:
             self.stop_auto_click()
 
     def stop_auto_click(self):
         # Stop auto-clicking and cleanup
         self.auto_clicking_active = False
+        if self.auto_click_thread and self.auto_click_thread.is_alive():
+            self.auto_click_thread.join()
         if self.keyboard_listener:
             self.keyboard_listener.stop()
 
