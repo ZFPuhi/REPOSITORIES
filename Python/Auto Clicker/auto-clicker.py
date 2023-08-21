@@ -37,6 +37,7 @@ class AutoClickerApp:
         self.label = tk.Label(root, text="Auto Clicker", font=("Verdana", 16))
         self.label.pack()
 
+        # Commented out the welcome label
         self.welcome_label = tk.Label(root, text="Welcome to Auto Clicker!", font=("Verdana", 14))
         self.welcome_label.pack()
 
