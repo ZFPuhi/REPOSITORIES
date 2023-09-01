@@ -10,6 +10,36 @@ As you can see from the screenshot below in my case I am up to date and there is
   <img src="https://github.com/ZFPuhi/REPOSITORIES/blob/master/Guide-D4/images/image-sync.png?raw=true" alt="How to properly sync your Fork">
 </p>
 
+### Using Visual Studio Code (VS Code)
+The first thing that we want to do is to switch to the main forked branch, to do that you can simply open the terminal in VS Code and type in "git checkout main" which will transfer you to your 'main' branch as shown in the screenshots below. If your branch is called different such as 'master' then you have to type 'git checkout master'.
+
+<p align="center">
+  <img src="https://github.com/ZFPuhi/REPOSITORIES/blob/master/Guide-D4/images/image-sync-using-vs-code-1.png?raw=true" alt="Find your branch">
+</p>
+<p align="center">
+  <img src="https://github.com/ZFPuhi/REPOSITORIES/blob/master/Guide-D4/images/image-sync-using-vs-code-2.png?raw=true" alt="Find your branch">
+</p>
+
+The second step is to use the upstream.
+If you haven't added an upstream to the original repository (you can check with 'git remote -v'), then simply type in 'git remote add upstream https://github.com/SanctuaryTeam/diablo4trading-fe.git' in my case its the Front End repository, in yours could be the backend so simply type in the link to the git repo and press enter. After performing that you can now type in 'git fetch upstream' which should display similar result to the screenshot below where you can see how my fork is been updated, fetching all the branches and changes located in the original repository from which we forked.
+
+<p align="center">
+  <img src="https://github.com/ZFPuhi/REPOSITORIES/blob/master/Guide-D4/images/image-sync-using-vs-code-3.png?raw=true" alt="Find your branch">
+</p>
+
+Now you can perform 'git pull' using the VS Code as shown on the screenshots below, to pull all of the changes from the upstream into your forked main branch.
+
+<p align="center">
+  <img src="https://github.com/ZFPuhi/REPOSITORIES/blob/master/Guide-D4/images/image-sync-using-vs-code-4.png?raw=true" alt="Find your branch">
+</p>
+<p align="center">
+  <img src="https://github.com/ZFPuhi/REPOSITORIES/blob/master/Guide-D4/images/image-sync-using-vs-code-5.png?raw=true" alt="Find your branch">
+</p>
+<p align="center">
+  <img src="https://github.com/ZFPuhi/REPOSITORIES/blob/master/Guide-D4/images/image-sync-using-vs-code-6.png?raw=true" alt="Find your branch">
+</p>
+
+Once you have done that you can simply Sync the changes that your fork didn't have.
 
 # You will want to create a develop branch on your forked repo, if not done already.
 In order to create a new branch on the Forked repository, you can follow the previous steps to enter into the repository folder and afterwards simply click on the '1 branch' located right next to your 'master/main' drop-down menu as shown on the screenshot below.
