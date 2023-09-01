@@ -41,6 +41,10 @@ Now you can perform 'git pull' using the VS Code as shown on the screenshots bel
 
 Once you have done that you can simply Sync the changes that your fork didn't have.
 
+<p align="center">
+  <img src="https://github.com/ZFPuhi/REPOSITORIES/blob/master/Guide-D4/images/image-sync-using-vs-code-7.png?raw=true" alt="Find your branch">
+</p>
+
 # You will want to create a develop branch on your forked repo, if not done already.
 In order to create a new branch on the Forked repository, you can follow the previous steps to enter into the repository folder and afterwards simply click on the '1 branch' located right next to your 'master/main' drop-down menu as shown on the screenshot below.
 <p align="center">
