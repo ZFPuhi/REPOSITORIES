@@ -9,7 +9,8 @@ A simple full-stack Expense Tracker app using **React**, **TailwindCSS**, **Expr
 ### 1. Frontend Setup
 
 ```bash
-nvm use 24.1.0
+nvm use node
+output: 24.1.0
 ```
 
 #### Create Project with Vite
@@ -18,13 +19,13 @@ nvm use 24.1.0
 npm create vite@latest
 ```
 
-- **Project name**: `expense-tracker-v1`
-- **Framework**: `React`
-- **Variant**: `JavaScript`
+- **Project name**: `expense-tracker-v1` (you can name it how every you want)
+- **Framework**: `React` (select)
+- **Variant**: `JavaScript` (select)
 
 ```bash
-cd expense-tracker-v1
-npm install
+cd expense-tracker-v1 (go to the project directory using the name that you gave)
+npm install (run)
 ```
 
 > ⚠️ **Warning**: You may see a warning about unsupported Node version:
