@@ -12,7 +12,7 @@ const Input = ({value, onChange, placeholder, label, type}) => {
         <label className="text-[13px] text-slate-800">{label}</label>
 
         <div className="input-box">
-            <Input
+            <input
                 type={type == 'password' ? showPassword ? 'text' : 'password' : type}
                 placeholder={placeholder}
                 className="w-full bg-transparent outline-none"
@@ -39,7 +39,7 @@ const Input = ({value, onChange, placeholder, label, type}) => {
             )}
         </div>
     </div>
-  )
-}
+  );
+};
 
-export default Input
+export default Input;
