@@ -1,128 +1,145 @@
-nvm use node
-24.1.0
-======================
+# 💰 Expense Tracker v1
+
+A simple full-stack Expense Tracker app using **React**, **TailwindCSS**, **Express**, and **MongoDB**.
+
+---
+
+## 🚀 Getting Started
+
+### 1. Frontend Setup
+
+```bash
+nvm use 24.1.0
+```
+
+#### Create Project with Vite
+
+```bash
 npm create vite@latest
-Need to install the following packages:
-create-vite@6.5.0
-Ok to proceed? (y) y
-======================
-Project name:
-│  expense-tracker-v1
-│
-◇  Select a framework:
-│  React
-│
-◇  Select a variant:
-│  JavaScript
-│
-◇  Scaffolding project in H:\REPOSITORIES\Expense-Tracker\frontend\expense-tracker-v1...
-│
-└  Done. Now run:
+```
 
-  cd expense-tracker-v1
-  npm install
-======================
+- **Project name**: `expense-tracker-v1`
+- **Framework**: `React`
+- **Variant**: `JavaScript`
+
+```bash
+cd expense-tracker-v1
 npm install
-npm WARN EBADENGINE Unsupported engine {
-npm WARN EBADENGINE   package: 'vite@6.3.5',
-npm WARN EBADENGINE   required: { node: '^18.0.0 || ^20.0.0 || >=22.0.0' },
-npm WARN EBADENGINE   current: { node: 'v21.4.0', npm: '10.2.4' }
-npm WARN EBADENGINE }
+```
 
-added 154 packages, and audited 155 packages in 10s
+> ⚠️ **Warning**: You may see a warning about unsupported Node version:
+> ```
+> npm WARN EBADENGINE Unsupported engine {
+>   package: 'vite@6.3.5',
+>   required: { node: '^18.0.0 || ^20.0.0 || >=22.0.0' },
+>   current: { node: 'v21.4.0', npm: '10.2.4' }
+> }
+> ```
 
-33 packages are looking for funding
-  run `npm fund` for details
+#### Start the Dev Server
 
-found 0 vulnerabilities
-======================
-  npm run dev
-======================
-  npm install tailwindcss @tailwindcss/vite
+```bash
+npm run dev
+```
 
-  npm WARN EBADENGINE Unsupported engine {
-npm WARN EBADENGINE   package: 'vite@6.3.5',
-npm WARN EBADENGINE   required: { node: '^18.0.0 || ^20.0.0 || >=22.0.0' },
-npm WARN EBADENGINE   current: { node: 'v21.4.0', npm: '10.2.4' }
-npm WARN EBADENGINE }
+#### Install Frontend Dependencies
 
-added 20 packages, and audited 175 packages in 3s
+```bash
+npm install tailwindcss @tailwindcss/vite
+npm install react-icons axios moment emoji-picker-react react-router-dom recharts react-hot-toast
+```
 
-36 packages are looking for funding
-  run `npm fund` for details
+---
 
-found 0 vulnerabilities
-======================
-npm i react-icons axios moment emoji-picker-react react-router-dom recharts react-hot-toast
+## 🛠 Backend Setup
 
-npm WARN EBADENGINE Unsupported engine {
-npm WARN EBADENGINE   package: 'vite@6.3.5',
-npm WARN EBADENGINE   required: { node: '^18.0.0 || ^20.0.0 || >=22.0.0' },
-npm WARN EBADENGINE   current: { node: 'v21.4.0', npm: '10.2.4' }
-npm WARN EBADENGINE }
-
-added 72 packages, and audited 247 packages in 5s
-
-42 packages are looking for funding
-  run `npm fund` for details
-
-found 0 vulnerabilities
-======================
-backend folder:
+```bash
+cd backend
 npm init -y
-======================
-npm i express jsonwebtoken mongoose dotenv cors bcryptjs multer xlsx
+```
 
-added 127 packages, and audited 128 packages in 6s
+#### Install Backend Dependencies
 
-17 packages are looking for funding
-  run `npm fund` for details
+```bash
+npm install express jsonwebtoken mongoose dotenv cors bcryptjs multer xlsx
+npm install nodemon --save-dev
+```
 
-1 high severity vulnerability
+> ⚠️ **Warning**: You may encounter a **high severity vulnerability**.
+> Run `npm audit` to review and resolve any issues.
 
-Some issues need review, and may require choosing
-a different dependency.
+#### Run Backend Dev Server
 
-Run `npm audit` for details.
-======================
-npm i nodemon --save-dev
+```bash
+npm run dev
+```
 
-added 26 packages, and audited 154 packages in 1s
+Expected output:
 
-21 packages are looking for funding
-  run `npm fund` for details
-
-1 high severity vulnerability
-
-Some issues need review, and may require choosing
-a different dependency.
-
-Run `npm audit` for details.
-======================
-MongoDB
-Create FREE account in MongoDB.
-Create FREE Cluster (name it ExpenseTracker or something that you will not forget) select FREE TIER.
-======================
-MongoDB
-Create a database user (different from your Login user) set username and password and then click Create User.
-Do copy the username / password that you have entered before creating the user, into notepad++ or PWS.
-======================
-MongoDB
-Choose Connection type -> Drivers (node.js, Go, etc)
-Next page copy the sample + showpassword and place it into your .env MONGO_URI=%%
-======================
-node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
-Execute and copy the value into your JWT_SECRET=%% in the .env file.
-======================
-\backend> npm run dev
-
-> expense-tracker-v1-backend@1.0.0 dev
-> nodemon server.js
-
-[nodemon] 3.1.10
-[nodemon] to restart at any time, enter `rs`  
-[nodemon] watching path(s): *.*
-[nodemon] watching extensions: js,mjs,cjs,json
+```
 [nodemon] starting `node server.js`
 Server running on port 8000
 MongoDB Connected Successfully
+```
+
+---
+
+## ☁️ MongoDB Setup (FREE)
+
+1. Create a free MongoDB account at [MongoDB Atlas](https://www.mongodb.com/atlas/database).
+2. Create a **free cluster** (e.g., name it `ExpenseTracker`).
+3. Create a **database user** (different from your login user).
+   - Set a username and password.
+   - Save them securely (e.g., Notepad++).
+4. Choose **Connect > Drivers > Node.js**.
+   - Copy the connection string (use “Show Password”).
+   - Add it to your `.env` file as:
+
+```env
+MONGO_URI=mongodb+srv://<username>:<password>@yourcluster.mongodb.net/?retryWrites=true&w=majority
+```
+
+---
+
+## 🔐 Environment Variables
+
+Generate a secure JWT secret:
+
+```bash
+node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+```
+
+Add it to your `.env` file:
+
+```env
+JWT_SECRET=your_generated_secret
+```
+
+---
+
+## ✅ Summary
+
+| Component     | Stack                         |
+|---------------|-------------------------------|
+| Frontend      | React + Vite + TailwindCSS    |
+| Backend       | Node.js + Express             |
+| Database      | MongoDB Atlas                 |
+| Auth & Utils  | JWT, bcryptjs, multer, xlsx   |
+
+---
+
+## 🧾 Notes
+
+- Use `npm fund` to see which packages are looking for funding.
+- Use `npm audit` to check and fix security vulnerabilities.
+- Node version warnings (`EBADENGINE`) can typically be ignored if the app functions correctly.
+
+---
+
+## 💡 Tip
+
+Use [Notepad++](https://notepad-plus-plus.org/) or another editor to store important config values (like passwords and secrets) during setup.
+
+---
+
+Happy Tracking! 🧾📊💸
