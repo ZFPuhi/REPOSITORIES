@@ -61,8 +61,9 @@ const Expense = () => {
         icon,
       });
       setOpenAddExpenseModal(false);
-      toast.sussess("Expense added successfully! We are rich!");
-      fetchIncomeDetails();
+      toast.sussess("Expense added successfully! We are are poor!");
+      // fetchIncomeDetails();
+      fetchExpenseDetails();
     } catch (error) {
       console.error(
         "Error adding expense:",

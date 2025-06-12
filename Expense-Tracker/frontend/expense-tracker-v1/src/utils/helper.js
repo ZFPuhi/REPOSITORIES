@@ -26,11 +26,11 @@ export const addThousandsSeparator = (num) => {
 };
 
 export const prepareExpenseBarChartData = (data = []) => {
-    const charData = data.map((item) => ({
+    const chartData = data.map((item) => ({
         category: item?.category,
         amount: item?.amount,
     }));
-    return charData;
+    return chartData;
 };
 
 export const prepareIncomeBarChartData = (data = []) => {

@@ -6,7 +6,8 @@ const { isValidObjectId, Types } = require("mongoose");
 exports.getDashboardData = async (req, res) => {
     try {
         const userId = req.user.id;
-        const userObjectId = new Type.userObjectId(String(userId));
+        // const userObjectId = new Type.userObjectId(String(userId));
+        const userObjectId = new Types.ObjectId(String(userId));
 
         // Fetch the total Income & Expenses
         const totalIncome = await Income.aggregate([
