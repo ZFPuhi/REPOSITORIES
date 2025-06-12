@@ -3,8 +3,9 @@ import CustomPieChart from "../Charts/CustomPieChart";
 
 const COLORS = ["#875CF5", "#FA2C37", "#FF6900", "#4F39f6"];
 
-const RecentIncomeWithChart = ({data, totalIncome}) => {
-    const [charData, setChartData] = useState([]);
+const RecentIncomeWithChart = ({ data, totalIncome }) => {
+    // const [charData, setChartData] = useState([]);
+    const [chartData, setChartData] = useState([]);
     const prepareChartData = () => {
         const dataArr = data?.map((item) => ({
             name: item?.source,
@@ -22,7 +23,7 @@ const RecentIncomeWithChart = ({data, totalIncome}) => {
                 <h5 className="text-lg">Last 60 Days Income</h5>
             </div>
             <CustomPieChart
-                data={charData}
+                data={chartData}
                 label="Total Income"
                 totalAmount={`$${totalIncome}`}
                 showTextAnchor
