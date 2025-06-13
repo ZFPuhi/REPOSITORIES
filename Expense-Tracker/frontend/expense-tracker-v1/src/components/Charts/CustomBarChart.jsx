@@ -16,10 +16,10 @@ const CustomBarChart = ({data}) => {
 
     // Function that will alternate the colors
     const getBarColor = (index) => {
-        return index % 2 === 0 ? "#875cf5" : "#cfbefb";
+        return (index % 2 === 0) ? "#875cf5" : "#cfbefb";
     };
     const CustomTooltip = ({ active, payload }) => {
-        if (active && payload && payload.lenght) {
+        if (active && payload && payload.length) {
             return (
                 <div className="bg-white shadow-md rounded-lg p-2 border border-gray-300">
                     <p className="text-xs font-semibold text-purple-800 mb-1">{payload[0].payload.category}</p>

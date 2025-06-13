@@ -30,13 +30,13 @@ const CustomPieChart = ({
                 labelLine={false}
             >
                 {data.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={colors[index % colors.lenght]} />
+                    <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
                 ))}
             </Pie>
             <Tooltip content={<CustomTooltip />} />
             <Legend content={<CustomLegend />}/>
                 {showTextAnchor && (
-                    <>
+                    <g>
                     <text
                         x="50%"
                         y="50%"
@@ -58,7 +58,7 @@ const CustomPieChart = ({
                     >
                         {totalAmount}
                     </text>
-                    </>
+                    </g>
                 )}
         </PieChart>
     </ResponsiveContainer>
