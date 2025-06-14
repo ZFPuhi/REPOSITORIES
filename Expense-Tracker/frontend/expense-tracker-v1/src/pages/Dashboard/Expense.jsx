@@ -76,7 +76,7 @@ const Expense = () => {
   const deleteExpense = async (id) => {
     try {
       await axiosInstance.delete(API_PATHS.EXPENSE.DELETE_EXPENSE(id));
-      setOpenDeleteAlert({ show: false, data: null});
+      setOpenDeleteAlert({ show: false, data: null });
       toast.success("Expense details were deleted successfully");
       fetchExpenseDetails();
     } catch (error) {
