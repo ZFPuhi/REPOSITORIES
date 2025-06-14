@@ -63,7 +63,8 @@ const Income = () => {
         icon,
       });
       setOpenAddIncomeModal(false);
-      toast.sussess("Income added successfully! We are rich!");
+      // toast.sussess("Income added successfully! We are rich!");
+      toast.success("Income added successfully! We are rich!");
       fetchIncomeDetails();
     } catch (error) {
       console.error(

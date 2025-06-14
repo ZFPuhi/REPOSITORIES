@@ -1,14 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "../Inputs/Input";
 import EmojiPickerPopup from "../EmojiPickerPopup";
 
-const AddExpenseForm = ({ onAddExpense }) => {
+// const AddExpenseForm = ({ onAddExpense, initialData }) => {
+//     const [income, setIncome] = useState({
+//     category: "",
+//     amount: "",
+//     date: "",
+//     icon: "",
+//     });
+// Add Edit:
+    const AddExpenseForm = ({ onAddExpense, initialData }) => {
     const [income, setIncome] = useState({
-    category: "",
-    amount: "",
-    date: "",
-    icon: "",
+        category: initialData?.category || "",
+        amount: initialData?.amount || "",
+        date: initialData?.date || "",
+        icon: initialData?.icon || "",
+        id: initialData?.id || null,
     });
+
+    useEffect(() => {
+        if (initialData) {
+        setIncome({
+            category: initialData.category || "",
+            amount: initialData.amount || "",
+            date: initialData.date || "",
+            icon: initialData.icon || "",
+            id: initialData.id || null,
+        });
+        }
+    }, [initialData]);
 
     const handleChange = (key, value) => setIncome({ ...income, [key]: value});
     return (
