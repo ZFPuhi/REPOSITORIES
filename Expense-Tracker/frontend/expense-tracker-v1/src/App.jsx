@@ -13,32 +13,35 @@ import Income from "./pages/Dashboard/Income";
 import Expense from "./pages/Dashboard/Expense";
 import UserProvider from "./context/UserContext";
 import { Toaster } from "react-hot-toast";
-
+// Adding specific Theme Provider from shadcn for DarkMode
+import { ThemeProvider } from "./components/theme-provider"; 
 
 const App = () => {
   return (
-    <UserProvider>
-      <div>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Root />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signUp" element={<SignUp />} />
-            <Route path="/dashboard" element={<Home />} />
-            <Route path="/income" element={<Income />} />
-            <Route path="/expense" element={<Expense />} />
-          </Routes>
-        </Router>
-      </div>
-      <Toaster
-        toastOptions={{
-          className: "",
-          style: {
-            fontSize:'13px'
-          },
-        }}
-      />
-    </UserProvider>
+    // <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <UserProvider>
+        <div>
+          <Router>
+            <Routes>
+              <Route path="/" element={<Root />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signUp" element={<SignUp />} />
+              <Route path="/dashboard" element={<Home />} />
+              <Route path="/income" element={<Income />} />
+              <Route path="/expense" element={<Expense />} />
+            </Routes>
+          </Router>
+        </div>
+        <Toaster
+          toastOptions={{
+            className: "",
+            style: {
+              fontSize:'13px'
+            },
+          }}
+        />
+      </UserProvider>
+    // </ThemeProvider>
   );
 };
 
