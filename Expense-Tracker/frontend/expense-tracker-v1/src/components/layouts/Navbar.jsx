@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import SideMenu from './SideMenu';
+import ModeToggle from '../mode-toggle';
 
 
 const Navbar = ({activeMenu}) => {
@@ -21,6 +22,7 @@ const Navbar = ({activeMenu}) => {
             </button>
             <h2 className="text-2xl font-medium text-black">Swipely Broke</h2>
             <h2 className="text-base font-medium text-black italic">One tap closer to tears.</h2>
+            <ModeToggle />
             {openSideMenu && (
                 <div className="fixed top-[61px] -ml-4 bg-white">
                     <SideMenu activeMenu={activeMenu} />

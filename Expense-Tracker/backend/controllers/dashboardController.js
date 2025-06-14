@@ -1,5 +1,5 @@
 const Income = require("../models/Income");
-const Expense = require ("../models/Expense");
+const Expense = require("../models/Expense");
 const { isValidObjectId, Types } = require("mongoose");
 
 // Dashboard Data
@@ -57,9 +57,9 @@ exports.getDashboardData = async (req, res) => {
         ].sort((a, b) => b.date - a.date); // Sort Latest First
 
         // Final Response
-        res.json ({
+        res.json({
             totalBalance:
-                (totalIncome[0]?.total || 0) - (totalExpenses[0]?.total || 0),
+                (totalIncome[0]?.total || 0) - (totalExpense[0]?.total || 0),
             totalIncome: totalIncome[0]?.total || 0,
             totalExpenses: totalExpense[0]?.total || 0,
             last30DaysExpenses: {

@@ -1,8 +1,8 @@
 import React from "react";
-const RecentTransactions = () => {
+const CustomBarChart = () => {
     return (
-        <div>RecentTransactions</div>
+        <div>CustomBarChart</div>
     );
 };
 
-export default RecentTransactions;
+export default CustomBarChart;
