@@ -16,7 +16,7 @@ import EmojiPickerPopup from "../EmojiPickerPopup";
         amount: initialData?.amount || "",
         date: initialData?.date || "",
         icon: initialData?.icon || "",
-        id: initialData?.id || null,
+        id: initialData?._id || null,
     });
 
     useEffect(() => {
@@ -26,7 +26,7 @@ import EmojiPickerPopup from "../EmojiPickerPopup";
             amount: initialData.amount || "",
             date: initialData.date || "",
             icon: initialData.icon || "",
-            id: initialData.id || null,
+            id: initialData._id || null,
         });
         }
     }, [initialData]);
@@ -53,7 +53,7 @@ import EmojiPickerPopup from "../EmojiPickerPopup";
                 type="number"
             />
             <Input
-                value={income.date}
+                value={income.date ? income.date.slice(0, 10) : ""}
                 onChange={({ target }) => handleChange("date", target.value)}
                 label="Date"
                 placeholder="DD/MM/YYYY"
