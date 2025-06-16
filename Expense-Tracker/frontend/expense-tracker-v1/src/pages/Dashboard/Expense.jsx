@@ -19,6 +19,8 @@ const Expense = () => {
     data: null,
   });
   const [openAddExpenseModal, setOpenAddExpenseModal] = useState(false);
+  // Adding Edit
+  const [expenseToEdit, setExpenseToEdit] = useState(null);
 
   // Lets get all of the Expense Details
   const fetchExpenseDetails = async () => {
@@ -61,8 +63,8 @@ const Expense = () => {
         icon,
       });
       setOpenAddExpenseModal(false);
-      toast.sussess("Expense added successfully! We are are poor!");
-      // fetchIncomeDetails();
+      // toast.sussess("Expense added successfully! We are are poor!");
+      toast.success("Expense added successfully! We are are poor!");
       fetchExpenseDetails();
     } catch (error) {
       console.error(
@@ -72,11 +74,48 @@ const Expense = () => {
     }
   };
 
+  // Adding Edit
+  const handleEditExpense = async (updatedExpense) => {
+  const { category, amount, date, icon, _id } = updatedExpense;
+
+  if (!category.trim()) {
+    toast.error("Category is required.");
+    return;
+  }
+  if (!amount || isNaN(amount) || Number(amount) <= 0) {
+    toast.error("Amount should be a valid number greater than 0.");
+    return;
+  }
+  if (!date) {
+    toast.error("Date is Required.");
+    return;
+  }
+
+  try {
+    await axiosInstance.put(API_PATHS.EXPENSE.UPDATE_EXPENSE(_id), {
+      category,
+      amount,
+      date,
+      icon,
+    });
+    toast.success("Expense updated successfully!");
+    setOpenAddExpenseModal(false);
+    setExpenseToEdit(null);
+    fetchExpenseDetails();
+  } catch (error) {
+    console.error(
+      "Error updating expense:",
+      error.response?.data?.message || error.message
+    );
+    toast.error("Failed to update the expense.");
+  }
+};
+
   // Time to Delete our Expenses
   const deleteExpense = async (id) => {
     try {
       await axiosInstance.delete(API_PATHS.EXPENSE.DELETE_EXPENSE(id));
-      setOpenDeleteAlert({ show: false, data: null});
+      setOpenDeleteAlert({ show: false, data: null });
       toast.success("Expense details were deleted successfully");
       fetchExpenseDetails();
     } catch (error) {
@@ -113,7 +152,7 @@ const Expense = () => {
   useEffect(() => {
     fetchExpenseDetails();
     return () => {};
-  })
+  }, [])
 
   return (
     <DashboardLayout activeMenu="Expense">
@@ -130,15 +169,34 @@ const Expense = () => {
             onDelete={(id) => {
               setOpenDeleteAlert({ show: true, data: id });
             }}
+            // Add Edit
+            onEdit={(expense) => {
+            setExpenseToEdit(expense);
+            setOpenAddExpenseModal(true);
+            }}
             onDownload={handleDownloadExpenseDetails}
             />
         </div>
-        <Modal
+        {/* <Modal
           isOpen={openAddExpenseModal}
           onClose={() => setOpenAddExpenseModal(false)}
           title="Add Expense"
+        > */}
+        {/* // Adding Edit */}
+        <Modal
+          isOpen={openAddExpenseModal}
+            onClose={() => {
+            setOpenAddExpenseModal(false);
+            setExpenseToEdit(null); // Clear edit mode on close
+            }}
+          title="Add Expense"
         >
-          <AddExpenseForm onAddExpense={handleAddExpense} />
+          {/* <AddExpenseForm onAddExpense={handleAddExpense} /> */}
+          {/* // Adding Edit */}
+          <AddExpenseForm
+          onAddExpense={expenseToEdit ? handleEditExpense : handleAddExpense}
+          initialData={expenseToEdit}
+          />
         </Modal>
         <Modal
           isOpen={openDeleteAlert.show}

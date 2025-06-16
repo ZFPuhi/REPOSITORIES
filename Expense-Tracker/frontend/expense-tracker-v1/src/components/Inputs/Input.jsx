@@ -21,7 +21,7 @@ const Input = ({value, onChange, placeholder, label, type}) => {
             />
 
             {type == "password" && (
-              <>
+              <g>
                 {showPassword ? (
                   <FaRegEye
                     size={22}
@@ -35,7 +35,7 @@ const Input = ({value, onChange, placeholder, label, type}) => {
                     onClick={() => toggleShowPassword()}
                   />
                 )}
-              </>
+              </g>
             )}
         </div>
     </div>
